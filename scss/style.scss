@@ -1,0 +1,333 @@
+@import "_nullstyle";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@400;700&family=PT+Sans:wght@400;700&display=swap");
+
+$black: #000000;
+$gold: #bdae82;
+$white: #ffffff;
+$light-black: #1c1c1c;
+$w770: 770px;
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 20px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	font-family: "Inter", sans-serif;
+	color: #ffffff;
+	background-color: #000000;
+	font-weight: 400;
+	min-width: 320px;
+
+}
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden; //Контент обрезается, без предоставления прокрутки. Для разных отступов.
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.page {
+}
+
+._container {
+	//border: 1px solid gold;
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 0px 20px;
+	box-sizing: content-box; //padding не учитавается в размере
+}
+
+.header-block {
+	position: relative;
+	width: 49%;
+	margin: 0 auto;
+	padding: 20px 0px;
+	@media (max-width: $w770) {
+			min-width: 280px;
+		}
+
+	
+	&__title {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-family: Merriweather;
+		font-weight: bold;
+		font-size: 40px;
+		line-height: 200%;
+		color: $gold;
+		@media (max-width: $w770) {
+			font-size: 32px;
+			line-height: 250%;
+		}
+	}
+	&__title::before {
+		display: block;
+		flex-grow: 1;
+		content: "";
+		width: 275px;
+		border-bottom: 2px solid $gold;
+		margin-right: 20px;
+	}
+	&__title::after {
+		display: block;
+		flex-grow: 1;
+		content: "";
+		width: 275px;
+		border-bottom: 2px solid $gold;
+		margin-left: 20px;
+	}
+}
+
+//Video________________________________________________________________________________
+.page {
+	&__video {
+	}
+}
+.video {
+	&__container {
+	}
+
+	&__player {
+	}
+}
+
+.player {
+	position: relative;
+
+	&__poster {
+		background: url(./assets/img/video.jpg);
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		z-index: 2;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		cursor: pointer;
+		transition: opacity 1s;
+	}
+	&__poster_active {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	&__viewer {
+		width: 100%;
+		height: auto;
+		border: 1px solid #bdae82;
+		border-bottom: 0;
+	}
+
+	&__play-button {
+		background: url("./assets/svg/play-btn.svg") no-repeat;
+		background-size: cover;
+		width: 150px;
+		height: 150px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 3;
+		transition: filter 1s;
+		cursor: pointer;
+		@media (max-width: 768px) {
+			width: 75px;
+			height: 75px;
+		}
+	}
+	&__play-button_none {
+		display: none;
+	}
+
+	&__play-button:hover {
+		filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+	}
+
+	&__controls {
+	}
+}
+.controls {
+	display: flex;
+	padding: 0px 20px;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	height: 60px;
+	padding: 0 20px;
+	background-color: #000000;
+	border: 1px solid #bdae82;
+	margin-top: -3px;
+	border-top: 0;
+	transition: 0.5s;
+	&__icon-play {
+		background-image: url(./assets/svg/play.svg);
+		width: 40px;
+		height: 36px;
+		background-size: contain;
+		background-position: center center;
+		background-repeat: no-repeat;
+		cursor: pointer;
+		transition: 0.3s;
+	}
+	&__icon-play:hover {
+		filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+	}
+	&__icon-play_pause {
+		background-image: url(./assets/svg/pause.svg);
+	}
+	&__icon-play_pause:hover {
+		filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+	}
+
+	&__progress {
+		width: calc(80% - 160px);
+		@media (max-width: 768px) {
+			order: 3;
+			width: calc(100% - 160px);
+		}
+	}
+
+	&__volume-icon {
+		background-image: url(./assets/svg/volume.svg);
+		width: 40px;
+		height: 36px;
+		background-size: contain;
+		background-position: center center;
+		background-repeat: no-repeat;
+		cursor: pointer;
+		transition: 0.3s;
+		@media (max-width: 768px) {
+			order: 2;
+		}
+	}
+	&__volume-icon:hover {
+		filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+	}
+	&__volume-icon_off {
+		background-image: url(./assets/svg/mute.svg);
+	}
+
+	&__volume-level {
+		width: calc(20% - 40px);
+		@media (max-width: 768px) {
+			display: none;
+		}
+	}
+}
+.progress {
+	background: linear-gradient(to right, #bdae82 0%, #bdae82 100%, #c8c8c8 100%, #c8c8c8 100%);
+	height: 10px;
+	outline: none;
+	-webkit-appearance: none;
+}
+
+.progress::-webkit-slider-thumb {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	-webkit-appearance: none;
+	cursor: ew-resize;
+	background: #fff;
+}
+
+//footer________________________________________________________________________________
+.footer {
+	
+	&__container {
+		padding: 20px 0px;
+	}
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		line-height: 50px;
+		padding: 0 20px;
+		@media (max-width: 768px) {
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+	}
+
+	&__copy {
+		display: flex;
+		@media (max-width: 768px) {
+			flex: 1 1 100%;
+			justify-content: center;
+		}
+	}
+
+	&__item {
+		padding-right: 20px;
+	}
+
+	&__rs-school {
+		@media (max-width: 768px) {
+			flex: 1 1 100%;
+			text-align: center;
+		}
+		
+	}
+	a {
+		transition: 0.3s;
+	}
+	a:hover {
+		color: #bdae82;
+		
+	}
+}
+.video-player__switch-theme {
+		background: url(./assets/svg/switch-theme.svg) center no-repeat;
+		width: 32px;
+		height: 32px;
+		margin: 20px;
+		padding: 10px;
+		margin-left: auto;
+		cursor: pointer;
+}
+.time {
+	position: absolute;
+	font-size: 30px;
+	z-index: 5;
+	margin-left: 5%;
+	bottom: 10%;
+	left: 6%;
+	opacity: 1;
+	
+}
+
+.time_no-active {
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: 1s;
+
+}
+@media (max-width: 1440px) {
+	.time {
+		display: none;
+	}
+}
+
+.light-theme {
+		transition: 0.5s;
+		background-color: #fff;
+		color: #000000;
+		a {
+			color: #000000;
+			transition: 0.5s;
+		}
+		.controls {
+			background-color: #f7f7f7;
+			
+		}
+}

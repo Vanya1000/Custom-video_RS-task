@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" type="image/png" href="./assets/svg/logo.svg" />
+	<title>custom player</title>
+</head>
+<body class="body">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container _container">
+				<div class="header-block">
+					<h1 class="header-block__title">Video</h1>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="page__video video">
+				<div class="video__container _container">
+					<div class="video__player player">
+						<div class="player__poster"></div>
+						<video class="player__viewer" src="./assets/video/video.mp4"></video>
+						<div class="player__play-button"></div>
+						<div class="player__controls controls">
+							<div class="controls__icon-play"></div>
+							<input type="range" class="controls__progress progress" value="0" min="0" max="100" step="1">
+							<div class="controls__volume-icon"></div>
+							<input type="range" class="controls__volume-level progress" value="100" min="0" max="100" step="1">
+						</div>
+					</div>
+					<div class="video-player__switch-theme"></div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container _container">
+				<div class="footer__body">
+					<div class="footer__copy">
+						<div class="footer__item">©</div>
+						<div class="footer__item">2022</div>
+						<div class="footer__item">
+							<a href="https://github.com/Vanya1000" target="_blank">github</a>
+						</div>
+					</div>
+					<div class="footer__rs-school">
+						<a href="https://rs.school/js-stage0/" target="_blank">Rolling Scopes School</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script type="module" src="./js/script.js"></script>
+</body>
+
+</html>
